@@ -1,0 +1,86 @@
+body {
+    background-image: url('https://img.freepik.com/free-vector/linear-flat-abstract-lines-pattern_23-2148940824.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-size: 300px 300px;
+    overflow: hidden;
+}
+
+.form {
+    width: 30vw;
+/*    height: 200px;*/ /* Set the height of your centered div */
+    background-color: #f2f2f2;
+    margin: auto;
+    position: relative;
+    top: 10vh; /* Move the div down by 50% of its own height */
+ /*   transform: translateY(-50%); /* Adjust for vertical centering */
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    border-color: rgb(180, 175, 175);
+    border-radius: 25px;
+}
+.tableContainer{
+    display: flex; 
+    justify-content: center;
+}
+
+.projectTable{
+    align-self: center;
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+}
+
+
+.projectTable td, .projectTable th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+}
+
+.projectTable th {
+    border-top: none;
+}
+
+.projectTable td:first-child, .projectTable th:first-child {
+     border-left: none;
+}
+
+
+.formButton {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+.projectForm {
+    margin-top: 20px;
+  }
+
+.projectForm > * {
+    margin: 5px;
+}
+
+.disabled{
+    display: none;
+}
+
+.selected{
+    background-color: rgb(165, 165, 165);
+}
+
+
+/* CSS Animations */
+
+.projectTable tr:first-child:hover {
+    background-color: #f2f2f2;
+}
+
+.projectTable tr:hover {
+    background-color: rgb(165, 165, 165);
+  }
+.formButton:hover {
+    background-color: rgb(165, 165, 165);

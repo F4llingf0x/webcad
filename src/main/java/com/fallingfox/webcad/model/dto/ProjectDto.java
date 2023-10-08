@@ -1,16 +1,15 @@
 package com.fallingfox.webcad.model.dto;
 
-import com.fallingfox.webcad.model.enums.Metric;
+import com.fallingfox.webcad.model.enums.Unit;
 import com.fallingfox.webcad.model.enums.Status;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class ProjectDto {
 
     String name;
-    Metric metric;
+    Unit unit;
     LocalDate creationDate;
     LocalDate lastUpdated;
     Status status;
@@ -25,12 +24,12 @@ public class ProjectDto {
         return this;
     }
 
-    public Metric getMetric() {
-        return metric;
+    public Unit getUnit() {
+        return unit;
     }
 
-    public ProjectDto setMetric(Metric metric) {
-        this.metric = metric;
+    public ProjectDto setUnit(Unit unit) {
+        this.unit = unit;
         return this;
     }
 
@@ -66,19 +65,19 @@ public class ProjectDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProjectDto that = (ProjectDto) o;
-        return Objects.equals(name, that.name) && metric == that.metric && Objects.equals(creationDate, that.creationDate) && Objects.equals(lastUpdated, that.lastUpdated) && status == that.status;
+        return Objects.equals(name, that.name) && unit == that.unit && Objects.equals(creationDate, that.creationDate) && Objects.equals(lastUpdated, that.lastUpdated) && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, metric, creationDate, lastUpdated, status);
+        return Objects.hash(name, unit, creationDate, lastUpdated, status);
     }
 
     @Override
     public String toString() {
         return "ProjectDto{" +
                 "name='" + name + '\'' +
-                ", metric=" + metric +
+                ", unit=" + unit +
                 ", creationDate=" + creationDate +
                 ", lastUpdated=" + lastUpdated +
                 ", status=" + status +

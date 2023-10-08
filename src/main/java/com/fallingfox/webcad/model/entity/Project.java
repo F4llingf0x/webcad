@@ -1,11 +1,10 @@
 package com.fallingfox.webcad.model.entity;
 
-import com.fallingfox.webcad.model.enums.Metric;
+import com.fallingfox.webcad.model.enums.Unit;
 import com.fallingfox.webcad.model.enums.Status;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -15,9 +14,9 @@ public class Project {
     @Id
     @Column(unique = true, name = "Name", updatable = false)
     String name;
-    @Column(name = "Metric", updatable = false)
+    @Column(name = "Unit", updatable = false)
     @Enumerated(EnumType.STRING)
-    Metric metric;
+    Unit unit;
     @Column(name = "CreationDate", updatable = false)
     LocalDate creationDate;
     @Column(name = "UpdateDate")
@@ -36,12 +35,12 @@ public class Project {
         return this;
     }
 
-    public Metric getMetric() {
-        return metric;
+    public Unit getUnit() {
+        return unit;
     }
 
-    public Project setMetric(Metric metric) {
-        this.metric = metric;
+    public Project setUnit(Unit unit) {
+        this.unit = unit;
         return this;
     }
 
@@ -77,19 +76,19 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return Objects.equals(name, project.name) && metric == project.metric && Objects.equals(creationDate, project.creationDate) && Objects.equals(lastUpdated, project.lastUpdated) && status == project.status;
+        return Objects.equals(name, project.name) && unit == project.unit && Objects.equals(creationDate, project.creationDate) && Objects.equals(lastUpdated, project.lastUpdated) && status == project.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, metric, creationDate, lastUpdated, status);
+        return Objects.hash(name, unit, creationDate, lastUpdated, status);
     }
 
     @Override
     public String toString() {
         return "Project{" +
                 "name='" + name + '\'' +
-                ", metric=" + metric +
+                ", metric=" + unit +
                 ", creationDate=" + creationDate +
                 ", lastUpdated=" + lastUpdated +
                 ", status=" + status +
