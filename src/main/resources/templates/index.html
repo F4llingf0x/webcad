@@ -1,62 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="..\static\css\style.css">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
+
 <body>
-    <div class="form"> 
-    <h1>Select a project </h1>
-    <div class="tableContainer">
-        <table class="projectTable" id="projectTable">
-            <tr>
-                <th>Project name</th>
-                <th>Unit</th>
-                <th>Created at</th>
-                <th>Last modified at at</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Germany</td>
-            </tr>
-        </table>
-    </div>
+    <div class="form">
+        <h1>Select a project </h1>
+        <div class="tableContainer">
+            <table class="projectTable" id="projectTable">
+                <thead class="header">
+                    <tr>
+                        <th>Project name</th>
+                        <th>Unit</th>
+                        <th>Created at</th>
+                        <th>Last modified at at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each ="project: ${projects} ">
+                        <td th:text = "${project.name}"> Row1</td>
+                        <td th:text = "${project.unit}"> Row2 </td>
+                        <td th:text = "${project.creationDate}"> Row3</td>
+                        <td th:text = "${project.lastUpdated}">>Row4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <button class="formButton" id="add"><i class="fa-solid fa-plus fa-xl"></i></button>
         <button class="formButton disabled" id="open"><i class="fa-solid fa-up-right-from-square fa-xl"></i></button>
-        <button class="formButton disabled" id ="delete"><i class="fa-regular fa-trash-can fa-xl"></i></button>
-    
+        <button class="formButton disabled" id="delete"><i class="fa-regular fa-trash-can fa-xl"></i></button>
+
         <form class="projectForm disabled" id="createForm" action="/action_page.php">
             <label>Project name</label><br>
             <input type="text"><br>
             <label>Unit</label><br>
             <input list="Metrics">
             <datalist id="Metrics">
-              <option value="MM">
-              <option value="CM">
-              <option value="M">
+                <option value="MM">
+                <option value="CM">
+                <option value="M">
             </datalist><br>
             <input type="submit">
-          </form>
-</div>  
+        </form>
+    </div>
 
-<script src="..\static\script\project.js"></script>
-<script src="https://kit.fontawesome.com/9bac6a551c.js" crossorigin="anonymous"></script>
+    <script th:src="@{/script/project.js}"></script>
+    <script src="https://kit.fontawesome.com/9bac6a551c.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

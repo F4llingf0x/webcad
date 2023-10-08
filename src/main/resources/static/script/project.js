@@ -11,10 +11,7 @@ const form = document.getElementById("createForm");
 let selectedRow = null;
 
 
-tableRows.forEach(function (row, index) {
-    if (index == 0) {
-        return;
-    }
+tableRows.forEach(function (row) {
     row.addEventListener("click", function () {
         selectRow(row)
     });

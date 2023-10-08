@@ -1,13 +1,16 @@
 package com.fallingfox.webcad.controller;
 
 import com.fallingfox.webcad.model.dto.ProjectDto;
+import com.fallingfox.webcad.model.entity.Project;
 import com.fallingfox.webcad.service.ProjectService;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/webcad/project")
 public class ProjectController {
 
@@ -30,6 +33,13 @@ public class ProjectController {
         return service.create(dto);
     }
 
+    @GetMapping("/index")
+    @ResponseStatus(HttpStatus.OK)
+    public String index(Model model) {
+        List<ProjectDto> projects = service.findAllValid();
+        model.addAttribute("projects",projects);
+        return "index";
+    }
 
 
 
